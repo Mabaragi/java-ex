@@ -1,5 +1,6 @@
 package ex0210.book;
 
+
 public class Ex19 {
     public static void main(String[] args) {
         Account account = new Account();
