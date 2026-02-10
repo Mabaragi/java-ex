@@ -1,1 +1,24 @@
-.metadata
+# Eclipse workspace metadata
+.metadata/
+
+# Eclipse project files
+.settings/
+.classpath
+.project
+
+# Java build outputs
+**/bin/
+**/out/
+**/target/
+
+# Compiled Java classes
+*.class
+
+# Logs and temp files
+*.log
+*.tmp
+*.swp
+
+# OS files
+.DS_Store
+Thumbs.db
