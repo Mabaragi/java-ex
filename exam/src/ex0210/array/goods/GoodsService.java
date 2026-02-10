@@ -1,4 +1,4 @@
-package ex0206.array.goods;
+package ex0210.array.goods;
 /**
   각 요청에 대한 로직(기능)을 담당할 클래스
   (등록 , 전체검색, 부분검색, 수정, 삭제 등등.....)
@@ -22,27 +22,26 @@ public class GoodsService{
 			 
 		};
    */
-    public void init(String [][] data){
-	    for (String[] goodsInfo : data) {
-	    	Goods goods = this.create(goodsInfo);
-	    	this.insert(goods);
-	    }
-	   
 
-   }//메소드끝
+   // 생성자 메소드
+   public GoodsService(Goods[] goodsArr){
+		for (int i = 0; i < goodsArr.length; i++) {
+			this.goodsArr[i] = goodsArr[i];
+		}
+	   count = goodsArr.length;
+   }
 
+   public GoodsService(String[][] data) {
+		this(toGoodsArr(data));
+   }
 
-   /**
-      Goods를 생성해서 값을 설정하고 생성된 Goos를 리턴하는 메소드 
-   */
-    private Goods create(String [] row){//{"A01" , "새우깡" , "2500" , "짜고 맛나다."}
-	   	Goods goods = new Goods();
-	   	goods.setCode(row[0]);
-	   	goods.setName(row[1]);
-	   	goods.setPrice(Integer.parseInt(row[2]));
-	   	goods.setExplain(row[3]);
-    	return goods;
-    }
+   private static Goods[] toGoodsArr(String[][] data) {
+	   Goods[] goodsArr = new Goods[data.length];
+		for (int i = 0; i < data.length; i++) {
+			goodsArr[i] = new Goods(data[i]);			
+		}
+	   return goodsArr;
+   }
 
 
 

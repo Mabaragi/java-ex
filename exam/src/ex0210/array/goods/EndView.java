@@ -1,4 +1,4 @@
-package ex0206.array.goods;
+package ex0210.array.goods;
 /**
   요청 결과를 출력할 view
 */
