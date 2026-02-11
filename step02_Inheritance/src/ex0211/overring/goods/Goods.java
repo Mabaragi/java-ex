@@ -1,4 +1,4 @@
-package ex0210.array.goods;
+package ex0211.overring.goods;
 /**
   상품으로 속성을 관리하는 개체
 */
@@ -23,6 +23,10 @@ public class Goods{
 		this(data[0], data[1], Integer.parseInt(data[2]), data[3]);	
 	}
 
+	public String toString() {
+		return this.getCode() + " | " + this.getName() + " | " + this.getPrice() + " | " + this.getExplain();
+	}
+	
 	//setXxx
 	public void setCode(String code) {
 		this.code = code;
