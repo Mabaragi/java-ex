@@ -1,19 +1,24 @@
 package ex0211.sample01;
 
+/**
+ * 날짜 : 2026-02-11 작성자 : 고영진 주제 : 상속
+ */
+
+
 public class FullTime {
-    private int empNo;
-    private String eName;
-    private String job;
-    private int mgr;
-    private String hireDate;
-    private String deptName;
-    private int salary;
-    private int bonus;
-   
-    public FullTime() {}
-    
-	public FullTime(int empNo, String eName, String job, int mgr, String hireDate, String deptName, int salary,
-			int bonus) {
+	private int empNo;
+	private String eName;
+	private String job;
+	private int mgr;
+	private String hireDate;
+	private String deptName;
+	private int salary;
+	private int bonus;
+
+	public FullTime() {}
+
+	public FullTime(int empNo, String eName, String job, int mgr, String hireDate, String deptName,
+			int salary, int bonus) {
 		this.empNo = empNo;
 		this.eName = eName;
 		this.job = job;
@@ -87,14 +92,15 @@ public class FullTime {
 	public void setBonus(int bonus) {
 		this.bonus = bonus;
 	}
-    
+
 	public void message() {
-		System.out.println(this.eName+"사원은 정규직 입니다.");
+		System.out.println(this.eName + "사원은 정규직 입니다.");
 	}
-	
+
 	public String toString() {
-		return String.format("%d | %s | %s | %d | %s | %s | % d % d", empNo, eName, job, mgr, hireDate, deptName, salary, bonus);
+		return String.format("%d | %s | %s | %d | %s | %s | % d % d", empNo, eName, job, mgr,
+				hireDate, deptName, salary, bonus);
 	}
-	
-    
+
+
 }
