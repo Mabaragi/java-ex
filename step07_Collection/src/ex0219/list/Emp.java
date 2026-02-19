@@ -1,6 +1,6 @@
 package ex0219.list;
 
-public class Emp {
+public class Emp implements Comparable<Emp> {
 	private int empno;
 	private String ename;
 	private int age;
@@ -43,6 +43,11 @@ public class Emp {
 	}
 	public void setAddr(String addr) {
 		this.addr = addr;
+	}
+	
+	@Override
+	public int compareTo(Emp o) {
+		return this.empno - o.getEmpno();
 	}
 	
 	@Override

@@ -63,9 +63,10 @@ public class ListExam03 extends ArrayList<Emp> {
 	
 	public List<Emp> sortByEmpno(){
 		List<Emp> shallowCopy = new ArrayList<Emp>(this);
-		//Comparator : 비교 기준을 정의하는 도구 (인터페이스) comparing : 정적 메서드. 비교용 키를 추출하는 공장 
-		shallowCopy.sort(Comparator.comparing(Emp::getEmpno));
-		return null;
+//		shallowCopy.sort();
+		Collections.sort(shallowCopy, (Emp o1, Emp o2) -> o1.getAge() - o2.getAge()
+		);
+		return shallowCopy;
 	}
 
 	public static void main(String[] args) {
@@ -79,6 +80,9 @@ public class ListExam03 extends ArrayList<Emp> {
 		System.out.println(searchNo + "번 사원: "+list.selectByNo(searchNo));
 		System.out.println("------------ 주소해당 사원 출력 ----------");
 		System.out.println(list.selectByAddr("서울시 강남구"));
+		System.out.println("------------ 모든 사원 정렬 출력 ----------");
+		System.out.println(list.sortByEmpno());
+		
 	}
 }
 
