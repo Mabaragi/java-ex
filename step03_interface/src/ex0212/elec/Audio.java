@@ -18,7 +18,7 @@ public class Audio extends Elec implements ElecFunction{
 	}
 	@Override
 	public void start() {
-		this.display();
+		this.display();	
 	}
 	@Override
 	public void stop() {
