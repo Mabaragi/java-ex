@@ -1,5 +1,6 @@
 package mvc.service;
 
+import java.io.File;
 import java.util.ArrayList;
 import java.util.Comparator;
 import java.util.Iterator;
@@ -32,20 +33,38 @@ public class ElectronicsServiceImpl implements ElectronicsService {
      */
     private ElectronicsServiceImpl() {
     	// 객체를 저장한 파일이 존재하면 파일을 로딩 그게 아니면 InitInfo 로딩
+    	
+    	
     	System.out.println("**private constructor init.....");
-    	ResourceBundle rb = ResourceBundle.getBundle("InitInfo");//InitInfo.properties
-        for(String key : rb.keySet()) {
-     	  String value =  rb.getString(key); //100,\uC120\uD48D\uAE30,35000,\uC0BC\uC131 \uC120\uD48D\uAE30
-     	   String data[] = value.split(",");
-     	   //System.out.println(key +" = " + value);
-     	  
-     	     list.add(new Electronics( Integer.parseInt(data[0]) ,data[1],   
-     	    		 Integer.parseInt( data[2]), data[3]) );
-     	  
-        }
+    	
+    	if (this.initializeElectronics() == null) {
+    		ResourceBundle rb = ResourceBundle.getBundle("InitInfo");//InitInfo.properties
+    		for(String key : rb.keySet()) {
+    			String value =  rb.getString(key); //100,\uC120\uD48D\uAE30,35000,\uC0BC\uC131 \uC120\uD48D\uAE30
+    			String data[] = value.split(",");
+    			//System.out.println(key +" = " + value);
+    			
+    			list.add(new Electronics( Integer.parseInt(data[0]) ,data[1],   
+    					Integer.parseInt( data[2]), data[3]) );
+    			
+    		}			
+		} else {
+			
+		}
+    	
         
         System.out.println(list);
       
+    }
+    
+    private List<Electronics> initializeElectronics(){
+    	File file = new File("resources/electronics.txt");
+    	System.out.println("파일 탐색!");
+    	if(!file.exists()) {
+    		System.out.println("파일이 없습니다!");
+    		return null;    		
+    	}
+    	return null;
     }
     
     public static ElectronicsService getInstance() {
