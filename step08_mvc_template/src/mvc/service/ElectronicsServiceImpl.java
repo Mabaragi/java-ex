@@ -18,6 +18,7 @@ import mvc.exception.SearchNotFoundException;
 
 public class ElectronicsServiceImpl implements ElectronicsService {
 	
+	
 	private static ElectronicsService instance = new ElectronicsServiceImpl(); 
     private static final int MAX_SIZE=10;
     List<Electronics> list = new ArrayList<Electronics>();
@@ -30,6 +31,7 @@ public class ElectronicsServiceImpl implements ElectronicsService {
      * 
      */
     private ElectronicsServiceImpl() {
+    	// 객체를 저장한 파일이 존재하면 파일을 로딩 그게 아니면 InitInfo 로딩
     	System.out.println("**private constructor init.....");
     	ResourceBundle rb = ResourceBundle.getBundle("InitInfo");//InitInfo.properties
         for(String key : rb.keySet()) {
@@ -137,6 +139,11 @@ public class ElectronicsServiceImpl implements ElectronicsService {
 		}
 		return searchResult;
 	}
-    
-	
+
+	@Override
+	public void saveObject() {
+		// 종료시 자동으로 리스트에 있는 객체 저장하는 메서드 작성
+		
+	}
+    	
 } // 클래스 끝 

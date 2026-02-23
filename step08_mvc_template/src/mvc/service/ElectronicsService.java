@@ -84,7 +84,11 @@ public interface ElectronicsService {
      * 2. 모델이름검색 기능
      * modelName 에 해당하는 모든 상품 리턴. 이름에 해당하는 모델 없을 시에 SearchNotFoundException 발생
      */
-    public List<Electronics> searchModelName(String ModelName) throws SearchNotFoundException;
+    public List<Electronics> searchModelName(String ModelName) throws SearchNotFoundException; 
+    
+    
+    public void saveObject();
+    
 }
 
 
